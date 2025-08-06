@@ -1,42 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Health Informatics Assessment Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors - Medical/Healthcare Theme */
+    --background: 255 255 255;
+    --foreground: 8 47% 9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 255 255 255;
+    --card-foreground: 8 47% 9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 255 255 255;
+    --popover-foreground: 8 47% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Medical Primary - Deep Blue */
+    --primary: 200 78% 25%;
+    --primary-foreground: 255 255 255;
+    --primary-light: 200 78% 45%;
+    --primary-dark: 200 78% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Healthcare Secondary - Soft Green */
+    --secondary: 160 30% 92%;
+    --secondary-foreground: 160 30% 25%;
+    --secondary-accent: 160 55% 35%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Medical Muted */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Healthcare Accent - Teal */
+    --accent: 180 65% 88%;
+    --accent-foreground: 180 65% 25%;
+    --accent-bright: 180 65% 35%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Error/Warning */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 255 255 255;
+    --warning: 45 90% 60%;
+    --warning-foreground: 8 47% 9%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Success - Medical Green */
+    --success: 160 55% 45%;
+    --success-foreground: 255 255 255;
 
-    --radius: 0.5rem;
+    /* Borders and Inputs */
+    --border: 210 20% 88%;
+    --input: 210 20% 94%;
+    --ring: 200 78% 45%;
+
+    /* Healthcare Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 78% 25%), hsl(200 78% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(160 55% 35%), hsl(180 65% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 78% 25%) 0%, hsl(180 65% 35%) 50%, hsl(160 55% 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(255 255 255 / 0.8), hsl(210 20% 98%));
+
+    /* Medical Shadows */
+    --shadow-soft: 0 2px 15px -3px hsl(200 78% 25% / 0.1);
+    --shadow-medium: 0 8px 25px -5px hsl(200 78% 25% / 0.15);
+    --shadow-strong: 0 15px 35px -5px hsl(200 78% 25% / 0.2);
+    --shadow-glow: 0 0 25px hsl(200 78% 45% / 0.3);
+
+    /* Assessment Progress Colors */
+    --progress-bg: 210 20% 94%;
+    --progress-fill: var(--gradient-primary);
+
+    /* Spacing and Layout */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+
+    /* Animation Curves */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +96,58 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode Medical Theme */
+    --background: 210 25% 8%;
+    --foreground: 210 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 25% 10%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 25% 10%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 200 78% 65%;
+    --primary-foreground: 210 25% 8%;
+    --primary-light: 200 78% 75%;
+    --primary-dark: 200 78% 55%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 25% 15%;
+    --secondary-foreground: 210 20% 85%;
+    --secondary-accent: 160 45% 55%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 25% 12%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 25% 15%;
+    --accent-foreground: 180 65% 75%;
+    --accent-bright: 180 65% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 210 25% 8%;
+    --warning: 45 85% 65%;
+    --warning-foreground: 210 25% 8%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --success: 160 55% 65%;
+    --success-foreground: 210 25% 8%;
+
+    --border: 210 25% 18%;
+    --input: 210 25% 15%;
+    --ring: 200 78% 65%;
+
+    /* Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 78% 55%), hsl(200 78% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(160 45% 55%), hsl(180 55% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 78% 55%) 0%, hsl(180 55% 65%) 50%, hsl(160 45% 65%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(210 25% 12%), hsl(210 25% 8%));
+
+    /* Dark Mode Shadows */
+    --shadow-soft: 0 2px 15px -3px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 25px -5px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 15px 35px -5px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 25px hsl(200 78% 65% / 0.4);
+
+    --progress-bg: 210 25% 15%;
+    --progress-fill: var(--gradient-primary);
   }
 }
 
@@ -100,6 +157,73 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .medical-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm border border-border/50;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .assessment-card {
+    @apply rounded-lg border border-border p-6 transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .assessment-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+
+  .hero-button {
+    @apply px-8 py-4 rounded-lg font-medium transition-all duration-300;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-button:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+
+  .assessment-progress {
+    @apply h-2 rounded-full overflow-hidden;
+    background: hsl(var(--progress-bg));
+  }
+
+  .assessment-progress-fill {
+    @apply h-full transition-all duration-500 ease-out;
+    background: var(--gradient-primary);
+  }
+
+  .section-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .section-completed {
+    @apply bg-success text-success-foreground;
+  }
+
+  .section-upcoming {
+    @apply bg-muted text-muted-foreground;
   }
 }
